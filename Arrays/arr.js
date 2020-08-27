@@ -9,35 +9,23 @@ function main(){
 }
 const arr= main()
 
-// Add an item to the array
-    arr.push(3);
-    console.log('New array instance:',arr);
-//length:
-//capacity:
-//memory address:
+arr.push(3); //length: 1, capacity: 3, memory address: 0
+console.log('New array instance:',arr);
 
 //EXPLORING THE PUSH METHOD
-    arr.push(5);
-    arr.push(15);
-    arr.push(19);
-    arr.push(45);
-    arr.push(10);
+    arr.push(5);  //length: 2 , capacity: 3  , memory address: 1
+    arr.push(15); //length: 3 , capacity: 12 , memory address: 2
+    arr.push(19); //length: 4 , capacity: 12 , memory address: 3
+    arr.push(45); //length: 5 , capacity: 12 , memory address: 4
+    arr.push(10); //length: 6 , capacity: 12 , memory address: 5
     console.log(arr)
-//length:
-//capacity:
-//memory address:
-//Explains:
+
 
 // EXPLORING THE POP METHOD
-    arr.pop();
-    arr.pop();
-    arr.pop();
+    arr.pop(); //length: 5 ,capacity: 12 ,memory address:
+    arr.pop(); //length: 4 ,capacity: 12 ,memory address:
+    arr.pop(); //length: 3 ,capacity: 12 ,memory address:
     console.log(arr)
-//length:
-//capacity:
-//memory address:
-//Explains:
-
 
 //UNDERSTANDING MORE ABOUT HOW ARRAYS WORK
 

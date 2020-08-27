@@ -10,14 +10,13 @@ class Array {
     push(value) {
         //we don't have to resize the memory every time we push some data
         if (this.length >= this._capacity) {
-            this.resize((this.length + 1) * Array.SIZE_RATIO);
+            this._resize((this.length + 1) * Array.SIZE_RATIO);
         }
-
         memory.set(this.ptr + this.length, value);
         this.length++;
     }
 
-    resize(size) {
+    _resize(size) {
         const oldPtr = this.ptr; //current allocated memory
         this.ptr = memory.allocate(size);//allocate a new, larger memory
         if (this.ptr === null) {
