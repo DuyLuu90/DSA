@@ -11,11 +11,15 @@ class LinkedList {
         this.head= null;
     }
     //performance= O(1)
-    insertFirst(item) {
-        this.head = new _Node(item, this.head)
+    insertFirst(item) {   
+        this.head = new _Node(item,this.head)
+        //new _Node(): create a new  node instance
+        //this.head: reassign this.head to next Node
     }
+
     //performance= O(n)
-    insertLast(item) {
+    insert(item) {
+        //console.log('Head:',item,this.head)
         if (this.head === null) {
             this.insertFirst(item)
         }
@@ -59,6 +63,7 @@ class LinkedList {
             this.head = this.head.next;
             return;
         }
+
         // Start at the head
         let currNode = this.head;
         // Keep track of previous
@@ -75,4 +80,51 @@ class LinkedList {
         }
         previousNode.next = currNode.next;
     }
+    
+    insertBefore(key,value){
+        if (!this.head) {
+            return null;
+        }
+        if(this.head.value === key) {
+            this.insertFirst(value);
+        }
+        let prev = null;
+        let curr = this.head;
+
+        while(curr != null && curr.value !== key){
+            prev = curr;
+            curr = curr.next;
+        }
+       
+        //console.log('prev: ',prev)
+        //console.log('curr: ',curr)
+        
+        //insert between curr and prev
+        if(curr !== null && prev !== null) {
+            prev.next = new _Node(value, curr);
+        }
+    }
+    insertAfter(key,value){
+        if (!this.head) {
+            return null;
+        }
+        let curr = this.head;
+        let next= curr.next
+
+        while(next != null && curr.value !== key){
+            curr= next;
+            next = next.next;
+        }
+       
+        //console.log('curr: ',curr)
+        //console.log('next: ',next)
+
+        if (next===null) this.insert(value)
+        else curr.next= new _Node(value,next)
+    }
+    insertAt(pos,value){
+        
+    }
 }
+
+module.exports= LinkedList
