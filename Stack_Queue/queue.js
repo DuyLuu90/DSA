@@ -27,4 +27,60 @@ class Queue {
         }
         return node.value;
     }
+    checkPaperwork(){
+        let random = Math.floor(Math.random() * 4) + 1  
+        if (random===1) {
+            const item= this.dequeue()
+            this.enqueue(item)
+        }
+        else this.dequeue()
+    }
 }
+const starTrekQ= new Queue()
+starTrekQ.enqueue('Kirk')
+starTrekQ.enqueue('Spock')
+starTrekQ.enqueue('Uhura')
+starTrekQ.enqueue('Sulu')
+starTrekQ.enqueue('Checkov')
+
+//console.log(starTrekQ)
+starTrekQ.checkPaperwork()
+
+
+function peek(queue) {
+    if (queue.first) return queue.first.value
+}
+//console.log(peek(starTrekQ))
+function isEmpty(queue){
+    if (!queue.first) return true
+    else return false
+}
+//console.log(isEmpty(starTrekQ))
+
+function display(queue){
+    if (!isEmpty(queue)) {
+        let {first,last}= queue
+        let array=[]
+        while(first.next){
+            array.push(first.value)
+            first= first.next
+        }
+        array.push(last.value)
+        console.log(array)
+    } 
+    else console.log('The queue is empty')
+}
+//display(starTrekQ)
+
+//CREATE A QUEUE CLASS USING DOUBLY LINKED LIST
+
+//QUEUE IMPLEMENTATION USING A STACK
+
+//SQUARE DANCING PAIRING
+function squareDance(){
+
+}
+
+//THE OPHIDIAN BANK
+
+module.exports= Queue
