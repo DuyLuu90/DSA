@@ -1,6 +1,6 @@
 class Memory {
     constructor() {
-      this.memory = new Float64Array(1024);
+      this.memory = new Float64Array(1024);//represent an array of 64-bit floating ptr numbers
       this.head = 0;
     }
     
@@ -31,7 +31,9 @@ class Memory {
         for (let i = 0; i < size; i++) {
           this.set(toIdx + i, this.get(fromIdx + i));
         }
-      } else {
+      } 
+      
+      else {
         // Iterate backwards
         for (let i = size - 1; i >= 0; i--) {
           this.set(toIdx + i, this.get(fromIdx + i));

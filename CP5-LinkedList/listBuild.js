@@ -12,7 +12,7 @@ class LinkedList {
     }
     //performance= O(1)
     insertFirst(item) {   
-        this.head = new _Node(item,this.head)
+        this.head = new _Node(item,this.head)// = _Node(item,null)
         //new _Node(): create a new  node instance
         //this.head: reassign this.head to next Node
     }
@@ -25,9 +25,12 @@ class LinkedList {
         }
         else {
             let tempNode= this.head;
+            //find last node
             while (tempNode.next !== null) {
                 tempNode= tempNode.next
             }
+
+            
             tempNode.next= new _Node(item,null)
         }
     }

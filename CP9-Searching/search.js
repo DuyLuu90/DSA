@@ -1,8 +1,7 @@
-const Queue= require('../Stack_Queue/queue')
-const tree= require('../BinarySearch_Tree/bst')
+const Queue= require('../CP6-Stack_Queue/queue')
+const tree= require('../CP8-BinarySearch_Tree/bst')
 
 function binarySearch(array,value,start,end){
-    //counter= counter+1
     start= (start===undefined)? 0: start
     end = (end===undefined)? array.length: end;
     if (start>end){
@@ -11,11 +10,8 @@ function binarySearch(array,value,start,end){
     const index= Math.floor((start+end)/2)
     const item= array[index]
 
-    //console.log(start,end)
     if (item==value){
-        //console.log(counter)
         return index;
-
     }
     else if (item<value){
         return binarySearch(array,value,index+1,end)
